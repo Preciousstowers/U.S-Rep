@@ -1,1 +1,3 @@
-api-key.R
+# API Key
+
+propublica_api_key <- "eJPXNHMnXeMHPQMpkIcHZHA03poXzARWbPYdgRTi"
