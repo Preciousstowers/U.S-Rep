@@ -1,0 +1,13 @@
+name: a7--Preciousstowers
+title: a7--Preciousstowers
+username:
+account: preciousjane
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 1531476
+bundleId: 2622860
+url: https://preciousjane.shinyapps.io/a7--Preciousstowers/
+when: 1574887870.37989
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: .gitignore.R|README.md|rubric.md
