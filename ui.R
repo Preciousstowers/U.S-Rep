@@ -39,18 +39,31 @@ page_one <- tabPanel(
     questions the idea of gender and parties within today’s political arena."),
     br(),
     a(href = "https://www.propublica.org/datastore/api/propublica-congress-api", "Click here for Data Set"),
-    h3("Affiliation:"),
+    h3(strong("Affiliation:")),
     p("Precious Stowers - Freshman - INFO-201A: Technical Foundations of 
       Informatics, The Information School, University of Washington, 
       Autumn 2019. "),
     h3(strong("Reflective Statement:")),
-    p("Throughout this assignment, I found thinking a deeper level about a function and the 
-      code itself to be continuously hard. For example, creating the bar graphs using ggplot 
-      to be interactive using only one widget was one of the functions that took myself multiple
-      hours to create, despite it being such a small function. In order to find my solution, 
-      I realized that I needed to pay attention to the details and not rush through creating a program. 
-      The details can bring a program to the next level without incorporating mass amounts of change. "),
-)
+    p("The political atmosphere will continuously be changed throughout the next century, 
+      due to the growing gap between technology and law. In O'neil's novel she states,"),
+    em("A model, after all, is nothing more than an abstract representation of some 
+         process, be it a baseball game, an oil company’s supply chain, a foreign 
+         government’s actions,... All of us carry thousands of models in our heads. 
+         They tell us what to expect, and they guide our decisions."),
+    br(),
+    br(),
+    p("O'neil correlates with my quote and application, because it intertwines both 
+      the idea of data modeling and human ethics.This model is only a model, unless one 
+      applies ethical reasons and actions behind these 
+      interactive charts and drop down widgets. With the upcoming election and the new iPhone 
+      11, the gaps between socio-economic statuses, gender and education will continue to grow
+      and steer society into two separate directions until one
+      decides to step in and close the gap, or even change the pattern. 
+      This model, after all, presents who is elected 
+      and who has an upper-hand in changing the political atmosphere.")
+    
+    )
+
     
 
 

@@ -5,9 +5,9 @@ account: preciousjane
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 1531476
-bundleId: 2622860
+bundleId: 2623406
 url: https://preciousjane.shinyapps.io/a7--Preciousstowers/
-when: 1574887870.37989
+when: 1574909484.3487
 asMultiple: FALSE
 asStatic: FALSE
 ignoredFiles: .gitignore.R|README.md|rubric.md

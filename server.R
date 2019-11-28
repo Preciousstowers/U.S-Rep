@@ -11,7 +11,7 @@ library(shiny)
 source("propublica.R")
 
 
-# ---- state by representatives dplyr filtering -------
+# ---- state dplyr filtering -------
 states <- all_members %>%
     group_by(state) %>%
     summarise()
@@ -26,38 +26,23 @@ default_data <- function(chamber, state){
     summarise()
 }
 
+#--------- gender function (ggplot)---------
+plot <- ggplot(party(chamber, state)) +
+  geom_col(aes(x = party, y = number, fill = party)) +
+  scale_fill_manual(values = c("blue", "red")) +
+  ggtitle("Democratic vs. Republican") +
+  xlab("party") +
+  ylab("number of canidates") +
+  coord_flip() 
 
-# ---- age function ----------
-
-get_age <- function(member_id = "L000560"){
-  df <- member(member_id)
-  age = as.integer(round(Sys.Date() - as.Date(df$date_of_birth))/365)
-}
-
-pro <- function(chamber = "house", state = "WA"){
-  df <- propublica(chamber, state)
-  rep <- df %>%
-    select(name, party, twitter_id, id, facebook_account) %>%
-    mutate(age = lapply(member_id, get_age))
-  
-}
-#--------- gender function ---------
-gender <- function(chamber, state){
-    df <- propublica(chamber, state)
-    gender_data <- df %>%
-        select(gender) %>%
-        count(gender) %>%
-        setNames(c("gender", "number"))
-}
-
-#-------- party function -------
-party <- function(chamber, state){
-  df <- propublica(chamber, state)
-  gender_data <- df %>%
-    select(party) %>%
-    count(party) %>%
-    setNames(c("party", "number"))
-}
+#-------- party function (ggplot) -------
+ggplot(gender(chamber, state)) +
+  geom_col(aes(x = gender, y = number, fill = gender)) +
+  scale_fill_manual(values = c("pink", "blue")) +
+  ggtitle("Gender of Representatives") +
+  xlab("Gender") +
+  ylab("number of Representatives") +
+  coord_flip()
 
 # ---- start of the server function ---------
 shinyServer(function(input, output) {
@@ -87,7 +72,7 @@ shinyServer(function(input, output) {
 
   output$male_and_female <- renderPlot(
       
-      # Renders a male vs. female barplot
+      # Renders a male vs. female barplot and recieves inputs
       ggplot(gender(chamber, input$state_gender)) +
         geom_col(aes(x = gender, y = number, fill = gender)) +
         scale_fill_manual(values = c( F = "pink", M = "blue")) +
@@ -101,7 +86,7 @@ shinyServer(function(input, output) {
   
   output$dem_or_rep <- renderPlot(
       
-      # Renders a dem vs.rep bar plot
+      # Renders a dem vs.rep bar plot and recieves input
     ggplot(party(chamber, input$state_gender)) +
       geom_col(aes(x = party, y = number, fill = party)) +
       scale_fill_manual(values = c( D = "blue", R = "red")) +
